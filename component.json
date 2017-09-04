@@ -1,13 +1,29 @@
 {
   "title": "Hubspot Component",
   "description": "elastic.io integation component for Hubspot API",
+  "envVars": {
+    "HUBSPOT_CLIENT_KEY": {
+      "required": true,
+      "description": "Your Hubspot OAuth client key"
+    },
+    "HUBSPOT_CLIENT_SECRET": {
+      "required": true,
+      "description": "Your Hubspot OAuth client secret"
+    }
+  },
   "credentials": {
     "fields": {
-      "name": {
-        "label": "My API Key",
+      "oauth": {
+        "label": "Authentication",
         "required": true,
-        "viewClass": "TextFieldView"
+        "viewClass": "OAuthFieldView"
       }
+    },
+    "oauth2": {
+      "client_id": "{{HUBSPOT_CLIENT_KEY}}",
+      "client_secret": "{{HUBSPOT_CLIENT_SECRET}}",
+      "auth_uri": "https://app.hubspot.com/oauth/authorize",
+      "token_uri": "https://api.hubapi.com/oauth/v1/token"
     }
   }
 }

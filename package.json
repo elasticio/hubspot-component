@@ -24,8 +24,9 @@
     "node": "8.1.3"
   },
   "dependencies": {
+    "elasticio-node": "0.0.8",
     "elasticio-sailor-nodejs": "2.2.0",
-    "elasticio-node": "0.0.8"
+    "hubspot": "^1.0.1"
   },
   "scripts": {
     "pretest": "node_modules/.bin/eslint lib spec spec-integration --ext .json --ext .js --fix",

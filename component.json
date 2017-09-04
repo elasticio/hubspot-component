@@ -1,0 +1,13 @@
+{
+  "title": "Hubspot Component",
+  "description": "elastic.io integation component for Hubspot API",
+  "credentials": {
+    "fields": {
+      "name": {
+        "label": "My API Key",
+        "required": true,
+        "viewClass": "TextFieldView"
+      }
+    }
+  }
+}

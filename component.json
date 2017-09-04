@@ -23,7 +23,10 @@
       "client_id": "{{HUBSPOT_CLIENT_KEY}}",
       "client_secret": "{{HUBSPOT_CLIENT_SECRET}}",
       "auth_uri": "https://app.hubspot.com/oauth/authorize",
-      "token_uri": "https://api.hubapi.com/oauth/v1/token"
+      "token_uri": "https://api.hubapi.com/oauth/v1/token",
+      "scopes": [
+        "contacts","automation","forms"
+      ]
     }
   }
 }

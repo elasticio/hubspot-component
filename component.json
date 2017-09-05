@@ -1,5 +1,5 @@
 {
-  "title": "Hubspot Component",
+  "title": "Hubspot",
   "description": "elastic.io integation component for Hubspot API",
   "envVars": {
     "HUBSPOT_CLIENT_KEY": {
@@ -25,7 +25,7 @@
       "auth_uri": "https://app.hubspot.com/oauth/authorize",
       "token_uri": "https://api.hubapi.com/oauth/v1/token",
       "scopes": [
-        "contacts","automation","forms"
+        "contacts"
       ]
     }
   }

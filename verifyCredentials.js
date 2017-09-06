@@ -1,26 +1,15 @@
+/*eslint no-console: 0*/
 'use strict';
-const co = require('co');
-const rp = require('request-promise');
+const Hubspot = require('hubspot');
 
 // This function will be called by the platform to verify credentials
 module.exports = function verifyCredentials(credentials, cb) {
-  console.log('Credentials passed for verification %j', credentials);
-
-  co(function*() {
-    console.log('Fetching user information');
-
-    const test = yield rp({
-      uri: 'https://cdn.elastic.io/test.json',
-      json: true
+    console.log('Credentials passed for verification %j', credentials);
+    const hubspot = new Hubspot({
+        clientId: process.env.HUBSPOT_CLIENT_KEY,
+        clientSecret: process.env.HUBSPOT_CLIENT_SECRET,
+        redirectUri: process.env.HUBSPOT_REDIRECT_URL || "https://app.elastic.io/callback/oauth2",
+        refreshToken: credentials.oauth.refresh_token
     });
-
-    console.log('Fetched JSON value=%j', test);
-
-    console.log('Verification completed');
-
-    cb(null, {verified: true});
-  }).catch(err => {
-    console.log('Error occurred', err.stack || err);
-    cb(err , {verified: false});
-  });
+    return hubspot.refreshAccessToken();
 };
